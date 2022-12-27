@@ -57,14 +57,13 @@ namespace Chess
 
         private void DrawBoard()
         {
+            
             while (true)
             {
                 
                 int size = 8;
 
                 const string top = " ---------------------------------";
-
-
 
                 for (int y = 0; y < size; y++)
                 {
@@ -228,7 +227,7 @@ namespace Chess
         private string GetFieldInFront(int yOld, string color)
         {
             if(color == "B") return ((yOld - 9) * -1).ToString();
-            return (yOld + 5).ToString();
+            return (7 - yOld).ToString();
         }
         private void ShowValidMovesForPawn(int xOld, int yOld)
         {
@@ -236,31 +235,22 @@ namespace Chess
             var sign = _board[xOld, yOld].Figure.Color == "B" ? "-" : "+";
             var color = _board[xOld, yOld].Figure.Color;
 
-            if (_board[xOld, AddOrSub(sign, yOld, 1)].Figure == null)
-            {
-                var fieldCord1 = GetFieldInFront(yOld, color);
-                validFields.Add(letters[xOld] + fieldCord1);
-                if (yOld == 6 || yOld == 1)
-                {
-                    var fieldCord = AddOrSub(sign, yOld, color == "B" ? 10 : 14).ToString();
-                    validFields.Add(letters[xOld] + fieldCord[1]);
-                }
-            }
+            GetFirstTwoFieldsForPawn(xOld, yOld, validFields, sign, color);
 
             var figureToHitIsDifferentColor2 =
                 xOld < 7 && _board[xOld + 1, AddOrSub(sign, yOld, 1)]?.Figure?.Color != _board[xOld, yOld]?.Figure?.Color;
 
             if (figureToHitIsDifferentColor2 && _board[xOld + 1, AddOrSub(sign, yOld, 1)]?.Figure != null)
             {
-                var fieldCord1 = ((yOld - 9) * -1).ToString();
-                validFields.Add(letters[xOld+1] + fieldCord1);
+                var fieldCord1 = color == "B" ? ((yOld - 9) * -1).ToString() : (7 - yOld).ToString();
+                validFields.Add(letters[xOld + 1] + fieldCord1);
             }
-            var figureToHitIsDifferentColor = 
+            var figureToHitIsDifferentColor =
                 xOld > 0 && _board[xOld - 1, AddOrSub(sign, yOld, 1)]?.Figure?.Color != _board[xOld, yOld]?.Figure?.Color;
-            
+
             if (figureToHitIsDifferentColor && _board[xOld - 1, AddOrSub(sign, yOld, 1)]?.Figure != null)
             {
-                var fieldCord1 = ((yOld - 9) * -1).ToString();
+                var fieldCord1 = color == "B" ? ((yOld - 9) * -1).ToString() : (7 - yOld).ToString();
                 validFields.Add(letters[xOld - 1] + fieldCord1);
             }
             foreach (var validField in validFields)
@@ -268,6 +258,22 @@ namespace Chess
                 Console.WriteLine(validField);
             }
         }
+
+        private void GetFirstTwoFieldsForPawn(int xOld, int yOld, List<string> validFields, string sign, string color)
+        {
+            if ((yOld == 6 && color == "B") || (yOld == 1 && color == "W"))
+            {
+                var fieldCord = AddOrSub(sign, yOld, color == "B" ? 10 : 14).ToString();
+                validFields.Add(letters[xOld] + fieldCord[1]);
+            }
+
+            if (_board[xOld, AddOrSub(sign, yOld, 1)].Figure == null)
+            {
+                var fieldCord1 = GetFieldInFront(yOld, color);
+                validFields.Add(letters[xOld] + fieldCord1);
+            }
+        }
+
         private bool CheckIfNewFieldIsValid(string oldCord, string newCord, int xNew, int yNew, int xOld, int yOld)
         {
             var isValid = !oldCord.Equals(newCord) && _board[xNew, yNew].Figure?.Color != _board[xOld, yOld]?.Figure?.Color;

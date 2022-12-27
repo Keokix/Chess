@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\altieri\\source\\repos\\Chess\\ChessCLI\\ChessCLI.csproj": {}
+    "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\ChessCLI\\ChessCLI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\altieri\\source\\repos\\Chess\\ChessCLI\\ChessCLI.csproj": {
+    "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\ChessCLI\\ChessCLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\altieri\\source\\repos\\Chess\\ChessCLI\\ChessCLI.csproj",
+        "projectUniqueName": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\ChessCLI\\ChessCLI.csproj",
         "projectName": "ChessCLI",
-        "projectPath": "C:\\Users\\altieri\\source\\repos\\Chess\\ChessCLI\\ChessCLI.csproj",
-        "packagesPath": "C:\\Users\\altieri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\altieri\\source\\repos\\Chess\\ChessCLI\\obj\\",
+        "projectPath": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\ChessCLI\\ChessCLI.csproj",
+        "packagesPath": "C:\\Users\\marce_hpoatx\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\ChessCLI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\altieri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marce_hpoatx\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nexus.dial.de/repository/nuget-all-v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\Chess.csproj": {
-                "projectPath": "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\Chess.csproj"
+              "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\Chess.csproj": {
+                "projectPath": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\Chess.csproj"
               }
             }
           }
@@ -63,24 +62,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.307\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\Chess.csproj": {
+    "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\Chess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\Chess.csproj",
+        "projectUniqueName": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\Chess.csproj",
         "projectName": "Chess",
-        "projectPath": "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\Chess.csproj",
-        "packagesPath": "C:\\Users\\altieri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\altieri\\source\\repos\\Chess\\Chess\\obj\\",
+        "projectPath": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\Chess.csproj",
+        "packagesPath": "C:\\Users\\marce_hpoatx\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marce_hpoatx\\OneDrive\\Dokumente\\GitHub\\Chess\\Chess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\altieri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marce_hpoatx\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -89,8 +88,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nexus.dial.de/repository/nuget-all-v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -122,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.307\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

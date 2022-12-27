@@ -10,3 +10,15 @@ C:\Users\altieri\source\repos\Chess\Chess\obj\Debug\net6.0\Chess.dll
 C:\Users\altieri\source\repos\Chess\Chess\obj\Debug\net6.0\refint\Chess.dll
 C:\Users\altieri\source\repos\Chess\Chess\obj\Debug\net6.0\Chess.pdb
 C:\Users\altieri\source\repos\Chess\Chess\obj\Debug\net6.0\ref\Chess.dll
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\bin\Debug\net6.0\Chess.deps.json
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\bin\Debug\net6.0\Chess.dll
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\bin\Debug\net6.0\Chess.pdb
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.csproj.AssemblyReference.cache
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.AssemblyInfoInputs.cache
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.AssemblyInfo.cs
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.csproj.CoreCompileInputs.cache
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.dll
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\refint\Chess.dll
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\Chess.pdb
+C:\Users\marce_hpoatx\OneDrive\Dokumente\GitHub\Chess\Chess\obj\Debug\net6.0\ref\Chess.dll

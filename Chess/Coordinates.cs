@@ -10,6 +10,7 @@ namespace Chess
     {
         public int GetBoardIndexByCoordinates(string cords)
         {
+            cords = cords.ToUpper();
             switch (cords)
             {
                 case "A":
