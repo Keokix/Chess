@@ -6,6 +6,7 @@ namespace Chess
     {
         private Field[,] _board;
         private Coordinates _cords;
+        private List<string> _validFields;
         public string[] letters = { "A", "B", "C", "D", "E", "F", "G", "H" };
         private bool PlayerWhiteTurn = true;
         public ChessEngine()
@@ -57,16 +58,17 @@ namespace Chess
 
         private void DrawBoard()
         {
-            
+
             while (true)
             {
-                
+
                 int size = 8;
 
                 const string top = " ---------------------------------";
 
                 for (int y = 0; y < size; y++)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(" {0}", top);
                     Console.Write("{0} ", size - y);
                     for (int x = 0; x < size; x++)
@@ -77,7 +79,7 @@ namespace Chess
                         bool color = !isFigure ? _board[x, y].Figure.Color.Equals("W") : false;
                         if (color)
                         {
-                            DrawInGreen(false, fieldContent); 
+                            DrawInGreen(false, fieldContent);
                         }
                         else
                         {
@@ -87,13 +89,14 @@ namespace Chess
                     }
                     Console.WriteLine("|");
                 }
+                Console.WriteLine(" {0}", top);
 
                 Console.Write("   ");
                 for (int i = 0; i < size; i++)
                 {
                     Console.Write(" {0}  ", letters[i]);
                 }
-                
+
                 Move();
                 Console.Clear();
             }
@@ -169,25 +172,35 @@ namespace Chess
                 var oldCord = Console.ReadLine();
                 var xOld = _cords.GetBoardIndexByCoordinates(oldCord[0].ToString());
                 var yOld = ((Int32.Parse(oldCord[1].ToString()) - 8) * -1);
-                
+
                 ShowValidMovesForPawn(xOld, yOld);
-
-                Console.WriteLine("");
-                Console.Write("New position: ");
-                var newCord = Console.ReadLine();
-                var xNew = _cords.GetBoardIndexByCoordinates(newCord[0].ToString());
-                var yNew = ((Int32.Parse(newCord[1].ToString()) - 8)*-1);
-
-                if (CheckIfNewFieldIsValid(oldCord, newCord, xNew, yNew, xOld, yOld))
+                if (_validFields.Count > 0)
                 {
-                    _board[xNew, yNew].Figure = _board[xOld, yOld].Figure;
-                    if (yNew == 7 || yNew == 0)
+
+                    Console.WriteLine("");
+                    Console.Write("New position: ");
+                    var newCord = Console.ReadLine();
+                    string letter = newCord[0].ToString();
+                    letter = letter.ToUpper();
+                    newCord = letter + newCord[1];
+                    if (_validFields.Contains(newCord))
                     {
-                        ChangePawnToNewFigureIfAtTheEnd(xNew, yNew);
+                        var xNew = _cords.GetBoardIndexByCoordinates(newCord[0].ToString());
+                        var yNew = ((Int32.Parse(newCord[1].ToString()) - 8) * -1);
+
+                        if (CheckIfNewFieldIsValid(oldCord, newCord, xNew, yNew, xOld, yOld))
+                        {
+                            _board[xNew, yNew].Figure = _board[xOld, yOld].Figure;
+                            if (yNew == 7 || yNew == 0)
+                            {
+                                ChangePawnToNewFigureIfAtTheEnd(xNew, yNew);
+                            }
+                            _board[xOld, yOld].Figure = null;
+                            PlayerWhiteTurn = !PlayerWhiteTurn;
+                        }
                     }
-                    _board[xOld, yOld].Figure = null;
-                    PlayerWhiteTurn = !PlayerWhiteTurn;
                 }
+
                 else
                 {
                     Console.WriteLine("Ungültige Eingabe, bitte erneut versuchen");
@@ -206,7 +219,9 @@ namespace Chess
 
         private void ShowValidMovesForBishop(int xOld, int yOld)
         {
-            List<string> validFields = new();
+            _validFields.Clear();
+
+
         }
 
         private int AddOrSub(string sign, int a, int b)
@@ -226,16 +241,17 @@ namespace Chess
 
         private string GetFieldInFront(int yOld, string color)
         {
-            if(color == "B") return ((yOld - 9) * -1).ToString();
+            if (color == "B") return ((yOld - 9) * -1).ToString();
             return (7 - yOld).ToString();
         }
         private void ShowValidMovesForPawn(int xOld, int yOld)
         {
-            List<string> validFields = new();
+            _validFields = new();
+            _validFields.Clear();
             var sign = _board[xOld, yOld].Figure.Color == "B" ? "-" : "+";
             var color = _board[xOld, yOld].Figure.Color;
 
-            GetFirstTwoFieldsForPawn(xOld, yOld, validFields, sign, color);
+            GetFirstTwoFieldsForPawn(xOld, yOld, _validFields, sign, color);
 
             var figureToHitIsDifferentColor2 =
                 xOld < 7 && _board[xOld + 1, AddOrSub(sign, yOld, 1)]?.Figure?.Color != _board[xOld, yOld]?.Figure?.Color;
@@ -243,7 +259,7 @@ namespace Chess
             if (figureToHitIsDifferentColor2 && _board[xOld + 1, AddOrSub(sign, yOld, 1)]?.Figure != null)
             {
                 var fieldCord1 = color == "B" ? ((yOld - 9) * -1).ToString() : (7 - yOld).ToString();
-                validFields.Add(letters[xOld + 1] + fieldCord1);
+                _validFields.Add(letters[xOld + 1] + fieldCord1);
             }
             var figureToHitIsDifferentColor =
                 xOld > 0 && _board[xOld - 1, AddOrSub(sign, yOld, 1)]?.Figure?.Color != _board[xOld, yOld]?.Figure?.Color;
@@ -251,9 +267,9 @@ namespace Chess
             if (figureToHitIsDifferentColor && _board[xOld - 1, AddOrSub(sign, yOld, 1)]?.Figure != null)
             {
                 var fieldCord1 = color == "B" ? ((yOld - 9) * -1).ToString() : (7 - yOld).ToString();
-                validFields.Add(letters[xOld - 1] + fieldCord1);
+                _validFields.Add(letters[xOld - 1] + fieldCord1);
             }
-            foreach (var validField in validFields)
+            foreach (var validField in _validFields)
             {
                 Console.WriteLine(validField);
             }
